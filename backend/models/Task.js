@@ -1,7 +1,9 @@
+// import libraries, models and database configuration
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 const User = require('./User');
 
+// Define the Task model
 const Task = sequelize.define('Task', {
   id: {
     type: DataTypes.INTEGER,

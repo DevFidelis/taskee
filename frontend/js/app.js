@@ -1,6 +1,6 @@
-// main javascript file for frontend manipulation
-
+// This listener fires when the DOM is fully loaded and ready for manipulation.
 document.addEventListener('DOMContentLoaded', () => {
+    // Setup element references
     const loginSection = document.getElementById('login-section');
     const registerSection = document.getElementById('register-section');
     const taskSection = document.getElementById('task-section');
@@ -18,9 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
   
     const notification = document.getElementById('notification');
   
+    // Setup api urls
     const apiUrl = 'http://localhost:5000/api';
     const quotesApiUrl = 'https://api.quotable.io/random';
-  
+
+    // Notification function
     const showNotification = (message, type) => {
       notification.textContent = message;
       notification.className = `notification ${type}`;
@@ -30,13 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 3000);
     };
   
+    // Show/hide sections based on selection
     const showSection = (section) => {
       loginSection.style.display = 'none';
       registerSection.style.display = 'none';
       taskSection.style.display = 'none';
       section.style.display = 'block';
     };
-  
+    
+    // Update navigation links based on login status
     const updateNavLinks = () => {
       const token = localStorage.getItem('token');
       if (token) {
@@ -51,7 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
         quoteSection.style.display = 'none';
       }
     };
-  
+    
+    // Fetch tasks from API with authorization
     const getTasks = async () => {
       const token = localStorage.getItem('token');
       try {
@@ -89,7 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
         showNotification(error.message, 'error');
       }
     };
-  
+    
+    // Add new task to API with authorization
     const addTask = async (e) => {
       e.preventDefault();
       const title = document.getElementById('task-title').value;
@@ -135,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
   
+    // Mark task as done with authorization
     const markTaskDone = async (id) => {
       const token = localStorage.getItem('token');
       try {
@@ -158,6 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
   
+    // Delete task with authorization
     const deleteTask = async (id) => {
       const token = localStorage.getItem('token');
       try {
@@ -178,7 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
         showNotification(error.message, 'error');
       }
     };
-  
+    
+    // Fetch random quote from external API
     const fetchQuote = async () => {
       try {
         const response = await fetch(quotesApiUrl);
@@ -192,7 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
         showNotification(error.message, 'error');
       }
     };
-  
+    
+    // Login user with email/password
     const login = async (e) => {
       e.preventDefault();
       const email = document.getElementById('login-email').value;
@@ -223,6 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
   
+    // Register new user with name/email/password
     const register = async (e) => {
       e.preventDefault();
       const name = document.getElementById('register-name').value;
@@ -254,6 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
   
+    // Logout user and clear token
     const logout = () => {
       localStorage.removeItem('token');
       showSection(loginSection);
@@ -261,6 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
       showNotification('Logged out successfully', 'success');
     };
   
+    // Event listeners for navigation, forms, buttons and quotes
     loginLink.addEventListener('click', () => showSection(loginSection));
     registerLink.addEventListener('click', () => showSection(registerSection));
     logoutLink.addEventListener('click', logout);
@@ -270,6 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
     registerForm.addEventListener('submit', register);
     taskForm.addEventListener('submit', addTask);
   
+    // Check for existing token and update UI accordingly
     if (localStorage.getItem('token')) {
       showSection(taskSection);
       updateNavLinks();

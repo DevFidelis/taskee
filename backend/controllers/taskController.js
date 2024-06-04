@@ -1,15 +1,19 @@
+// import models
 const Task = require('../models/Task');
 
+// Get all pending tasks for the current user
 const getTasks = async (req, res) => {
   try {
-    // find all tasks where user id and completed is 0
-    const tasks = await Task.findAll({ where: { userId: req.user.id, completed: false } });
+    const tasks = await Task.findAll({
+      where: { userId: req.user.id, completed: false },
+    });
     res.json(tasks);
   } catch (error) {
     res.status(500).json({ message: 'Server error' });
   }
 };
 
+// Create a new task for the current user
 const createTask = async (req, res) => {
   const { title, description } = req.body;
 
@@ -26,6 +30,7 @@ const createTask = async (req, res) => {
   }
 };
 
+// Update a task for the current user
 const updateTask = async (req, res) => {
   const { title, description, completed } = req.body;
 
@@ -33,11 +38,7 @@ const updateTask = async (req, res) => {
     const task = await Task.findByPk(req.params.id);
 
     if (task && task.userId === req.user.id) {
-      task.title = title || task.title;
-      task.description = description || task.description;
-      task.completed = completed !== undefined ? completed : task.completed;
-
-      await task.save();
+      task.update({ title, description, completed });
       res.json(task);
     } else {
       res.status(404).json({ message: 'Task not found' });
@@ -47,6 +48,7 @@ const updateTask = async (req, res) => {
   }
 };
 
+// Delete a task for the current user
 const deleteTask = async (req, res) => {
   try {
     const task = await Task.findByPk(req.params.id);
