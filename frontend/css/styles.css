@@ -1,0 +1,271 @@
+/* main site css */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;
+}
+
+/* elements */
+body {
+  font-family: 'Kanit', sans-serif;
+  background-color: rgba(6, 10, 11, 0.83);
+  background-color: #f7f7f7;
+  color: #343434;
+  margin: 0;
+  padding: 0;
+}
+  
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #192841;
+  padding: 6px 40px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;  
+}
+  
+header h1 {
+  font-size: 25px;
+  color: #ffffffa1;
+  font-variant: small-caps;
+  letter-spacing: 6px;
+  margin: 0;
+}
+  
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+  
+nav a {
+  font-size: small;
+  background-color: #263f6ac7;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+  padding: 2px 20px;
+  border-radius: 10px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 0 10px 10px 0;
+  font-size: small;
+}
+
+form input:focus {
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 10px 0 0 10px;
+  box-shadow: 0 0 2px #ccc;
+  transition: all 0.3s ease;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: #192841;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 1px 10px 10px 3px;
+}
+
+section p {
+  font-size: small;
+  color: #343434;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+main {
+  height: 100%;
+}
+
+footer {
+  background-color: #ccccccc6;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer p {
+  text-align: center;
+  font-size: small;
+}
+
+aside {
+  padding: 20px;
+  margin-right: 40px;
+  border-radius: 5px;
+  width: 30%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+/* ids */
+#login-section, #register-section {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  width: 350px;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+#task-list {
+  list-style: none;
+  padding: 0;
+}
+
+#task-list li {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffffbf;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 500px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+  border-radius: 5px;
+}
+
+#task-list li button {
+  background-color: #192841b4;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 50px;
+  margin-right: 4px;
+}
+
+#new-quote {
+  background-color: #192841b4;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* classes */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-body {
+  flex: 1;
+}
+
+.notification {
+  text-align: center;
+  display: none;
+  padding: 10px;
+  margin: 40px 200px;
+  border-radius: 5px;
+}
+
+.notification.success {
+  background-color: #b9edbb;
+  color: #333;
+}
+
+.notification.error {
+  background-color: #e08e88;
+  color: #333;
+}
+
+.side-by-side {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.task-details {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.task-title {
+  font-size: 18px;
+}
+
+.task-description {
+  font-size: small;
+  color: #333333b9;
+}
+
+/* smaller screens design */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 10px 20px;
+  }
+    
+  header h1 {
+    font-size: small;
+    letter-spacing: 4px;
+  }
+    
+  nav a {
+    font-size: 12px;
+    padding: 2px 15px;
+  }
+
+  aside {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #login-section, #register-section {
+    width: 85%;
+  }
+
+  #task-section {
+    display: flex;
+    flex-flow: column wrap;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 90%;
+  }
+  
+  #task-list li {
+    width: 100%;
+  }
+  
+  #task-list li button {
+    font-size: small;
+    padding: 3px 8px;
+  }
+
+  .notification {
+    margin: 40px 40px;
+  }
+}

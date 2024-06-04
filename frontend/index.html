@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="src/favicon.ico" type="image/x-icon">
+    <title>Taskee - A simple task orginizer</title>
+</head>
+<body class="app">
+    <header>
+        <h1>Taskee</h1>
+        <nav>
+            <a id="login-link" href="#">Sign In</a>
+            <a id="register-link" href="#">Sign Up</a>
+            <a id="logout-link" href="#" style="display:none;">Sign Out</a>
+        </nav>
+    </header>
+
+    <main class="app-body">
+        <section id="notification" class="notification"></section>
+        <section id="login-section">
+            <p>Sign In below and get your tasks organized today!</p>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Enter your email or username..." required>
+                <input type="password" id="login-password" placeholder="Enter your password..." required>
+                <button type="submit">Sign In</button>
+            </form>
+        </section>
+        <section id="register-section" style="display:none;">
+            <p>Sign Up below and get your tasks organized today!</p>
+            <form id="register-form">
+                <input type="text" id="register-name" placeholder="Enter your name i.e John..." required>
+                <input type="email" id="register-email" placeholder="Enter your email i.e john@gmail.com..." required>
+                <input type="password" id="register-password" placeholder="Enter your password..." required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+        <section class="side-by-side">
+            <aside id="quote-section" style="display:none;">
+                <h3>Motivational Quote</h3>
+                <p id="quote"></p>
+                <button id="new-quote">New Quote</button>
+            </aside>
+            <section id="task-section" style="display:none;">
+                <h2>Task Management</h2>
+                <form id="task-form">
+                    <input type="text" id="task-title" placeholder="Task title..." required>
+                    <input type="text" id="task-description" placeholder="Task description..." required>
+                    <button type="submit">Add Task</button>
+                </form>
+                <ul id="task-list"></ul>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            &copy; 2024 Taskee course project by 
+            <a href="https://github.com/DevFidelis" target="_blank">Fidelis Musamba</a>. 
+            All rights reserved.
+        </p>
+    </footer>
+    
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+# ignore node modules folder, .env file, and package-lock.json
+/node_modules
+.env
+package-lock.json
