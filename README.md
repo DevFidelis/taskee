@@ -31,14 +31,14 @@ This command will install all the necessary libraries required to run the backen
     
 ## Create a .env file
     
-    *   Fill in the required environment variables in the .env file, which include the following:
-        * PORT = 500
-        * DATABASE_HOST = localhost
-        * DATABASE_PORT = your database port
-        * DATABASE_USER = root or your set username
-        * DATABASE_PASSWORD = your database password
-        * DATABASE_NAME = taskee_db
-        * JWT_SECRET = your seceret
+*   Fill in the required environment variables in the .env file, which include the following:
+    * PORT = 500
+    * DATABASE_HOST = localhost
+    * DATABASE_PORT = your database port
+    * DATABASE_USER = root or your set username
+    * DATABASE_PASSWORD = your database password
+    * DATABASE_NAME = taskee_db
+    * JWT_SECRET = your seceret
 
 ## Frontend Setup
 * use extensions like liveserver to run the frontend 
